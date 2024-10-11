@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
 
 class AgeTextFormField extends StatelessWidget {
-  const AgeTextFormField({super.key});
+  final Function onAgeToke;
+  const AgeTextFormField({super.key, required this.onAgeToke});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +25,14 @@ class AgeTextFormField extends StatelessWidget {
           TextFormField(
             keyboardType: TextInputType.number,
             validator: (value) {
-              if (value == null) {
+              if (value!.length == 0) {
                 return "Enter your age";
               }
               return null;
             },
             onSaved: (newValue) {
               print("age : $newValue");
+              onAgeToke(newValue);
             },
             decoration: InputDecoration(
               hintText: "Enter Age",

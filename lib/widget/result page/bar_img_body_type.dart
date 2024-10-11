@@ -18,7 +18,7 @@ class BarImgBodyType extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            color: Colors.yellow,
+            // color: Colors.yellow,
             height: 200,
             width: 100,
             child: Image.asset(

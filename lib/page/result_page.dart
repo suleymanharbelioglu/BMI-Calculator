@@ -6,13 +6,15 @@ import 'package:flutter_application_2/widget/result%20page/bmi_reuslt.dart';
 import 'package:flutter_application_2/widget/result%20page/suggestions.dart';
 
 class ResultPage extends StatelessWidget {
-  final double massIndex = 18;
-  final MassType massType = MassType.extremelyObese;
-  const ResultPage({super.key});
+  final double massIndex;
+  final MassType massType;
+  const ResultPage(
+      {super.key, required this.massIndex, required this.massType});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Constants.appBackgroundColur,
       appBar: AppBar(
         automaticallyImplyLeading: false,

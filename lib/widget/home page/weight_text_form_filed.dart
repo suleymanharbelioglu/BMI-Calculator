@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
 
 class WeightTextFormFiled extends StatelessWidget {
-  const WeightTextFormFiled({super.key});
+  final Function onWeightToke;
+  const WeightTextFormFiled({super.key, required this.onWeightToke});
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +25,13 @@ class WeightTextFormFiled extends StatelessWidget {
           TextFormField(
             keyboardType: TextInputType.number,
             validator: (value) {
-              if (value == null) {
+              if (value!.length == 0) {
                 return "Enter your Weight";
               }
               return null;
             },
             onSaved: (newValue) {
+              onWeightToke(newValue);
               print("Weight : $newValue");
             },
             decoration: InputDecoration(

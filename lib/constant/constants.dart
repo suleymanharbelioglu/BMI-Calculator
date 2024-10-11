@@ -44,4 +44,6 @@ class Constants {
       EdgeInsets.symmetric(horizontal: 10, vertical: 5);
   static const bakButtonPadding =
       EdgeInsets.symmetric(horizontal: 10, vertical: 0);
+  static const calculateButtonPading =
+      EdgeInsets.symmetric(horizontal: 10, vertical: 10);
 }

@@ -101,4 +101,25 @@ class DataHelper {
         return [];
     }
   }
+
+  static calculateBodyMassIndex(String age, String height, String weight) {
+    double ageNum = double.parse(age);
+    double heightNum = double.parse(height);
+    double weightNum = double.parse(weight);
+    var h = (heightNum / 100) * (heightNum / 100);
+    return weightNum / h;
+  }
+
+  static MassType returnMassTypeAcordingToBMI(double bodyMassIndex) {
+    if (bodyMassIndex > 30) {
+      return MassType.extremelyObese;
+    } else if (bodyMassIndex < 30 || bodyMassIndex > 25) {
+      return MassType.overWeight;
+    } else if (bodyMassIndex < 25 || bodyMassIndex > 18) {
+      return MassType.normalWeight;
+    } else if (bodyMassIndex < 18) {
+      return MassType.underWeight;
+    }
+    return MassType.underWeight;
+  }
 }

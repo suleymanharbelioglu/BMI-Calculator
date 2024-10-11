@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
 
 class HeightTextFormFiled extends StatelessWidget {
-  const HeightTextFormFiled({super.key});
+  final Function onHeightToke;
+  const HeightTextFormFiled({super.key, required this.onHeightToke});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +25,14 @@ class HeightTextFormFiled extends StatelessWidget {
           TextFormField(
             keyboardType: TextInputType.number,
             validator: (value) {
-              if (value == null) {
+              if (value!.length == 0) {
                 return "Enter your Height";
               }
               return null;
             },
             onSaved: (newValue) {
               print("Height : $newValue");
+              onHeightToke(newValue);
             },
             decoration: InputDecoration(
               hintText: "Enter Height",
