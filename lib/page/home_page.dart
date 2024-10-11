@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
+import 'package:flutter_application_2/widget/age_text_form_field.dart';
+import 'package:flutter_application_2/widget/calculate_button.dart';
+import 'package:flutter_application_2/widget/height_text_form_filed.dart';
+import 'package:flutter_application_2/widget/weight_text_form_filed.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -39,53 +43,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          ageTextFormFiled(),
+          AgeTextFormField(),
+          HeightTextFormFiled(),
+          WeightTextFormFiled(),
+          CalculateButton(),
         ],
       ),
     );
-  }
-
-  Container ageTextFormFiled() {
-    return Container(
-          margin: EdgeInsets.all(20),
-          // height: 75,
-          width: double.infinity,
-          decoration: BoxDecoration(
-              // color: Colors.yellow.shade100,
-              ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Enter Age",
-                style: Constants.inputLabelStyle,
-              ),
-              SizedBox(height: 10),
-              TextFormField(
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null) {
-                    return "Enter your age";
-                  }
-                  return null;
-                },
-                onSaved: (newValue) {
-                  age = newValue!;
-                  print("age : $age");
-                },
-                decoration: InputDecoration(
-                  hintText: "Enter Age",
-                  hintStyle: Constants.inputHintStyle,
-                  fillColor: Constants.textFiledColor,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
   }
 }
