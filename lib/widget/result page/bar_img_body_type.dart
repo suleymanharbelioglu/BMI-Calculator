@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
+import 'package:flutter_application_2/data_helper/data_helper.dart';
+import 'package:flutter_application_2/model/model.dart';
 
 class BarImgBodyType extends StatelessWidget {
-  const BarImgBodyType({super.key});
+  final MassType massType;
+  const BarImgBodyType({super.key, required this.massType});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +22,12 @@ class BarImgBodyType extends StatelessWidget {
             height: 200,
             width: 100,
             child: Image.asset(
-              "assets/images/extreme_obese.png",
+              DataHelper.createMainImageUrlAccordingToMassType(massType),
               fit: BoxFit.fill,
             ),
           ),
           Text(
-            "Extremely Obese",
+            DataHelper.createMassTypeTextAccordingToMassType(massType),
             style: Constants.bodyTypeTextStyle,
           ),
         ],

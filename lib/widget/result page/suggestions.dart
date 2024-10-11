@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
+import 'package:flutter_application_2/data_helper/data_helper.dart';
+import 'package:flutter_application_2/model/model.dart';
 
 class Suggestions extends StatelessWidget {
-  const Suggestions({super.key});
+  final MassType massType;
+  const Suggestions({super.key, required this.massType});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +25,24 @@ class Suggestions extends StatelessWidget {
               color: Constants.textFiledColor,
               borderRadius: BorderRadius.circular(15),
             ),
-            child: Text(
-              "  Drink water a half hour before your meal",
-              style: Constants.suggestionTextStyle,
+            child: Row(
+              children: [
+                Image.asset(DataHelper
+                    .generateSuggestionImageUrlListAccordingToMassType(
+                        massType)[0]),
+                SizedBox(
+                  width: 5,
+                ),
+                Expanded(
+                  child: Container(
+                    child: Text(
+                      DataHelper.generateSuggestionListAccordingToMassType(
+                          massType)[0],
+                      style: Constants.suggestionTextStyle,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Container(
@@ -36,9 +54,24 @@ class Suggestions extends StatelessWidget {
               color: Constants.textFiledColor,
               borderRadius: BorderRadius.circular(15),
             ),
-            child: Text(
-              "  Eat Only two meals per day and make sure that they contains a high protein",
-              style: Constants.suggestionTextStyle,
+            child: Row(
+              children: [
+                Image.asset(DataHelper
+                    .generateSuggestionImageUrlListAccordingToMassType(
+                        massType)[1]),
+                SizedBox(
+                  width: 5,
+                ),
+                Expanded(
+                  child: Container(
+                    child: Text(
+                      DataHelper.generateSuggestionListAccordingToMassType(
+                          massType)[1],
+                      style: Constants.suggestionTextStyle,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Container(
@@ -50,9 +83,24 @@ class Suggestions extends StatelessWidget {
               color: Constants.textFiledColor,
               borderRadius: BorderRadius.circular(15),
             ),
-            child: Text(
-              "  Drink coffee or tea and Avoid sugary food",
-              style: Constants.suggestionTextStyle,
+            child: Row(
+              children: [
+                Image.asset(DataHelper
+                    .generateSuggestionImageUrlListAccordingToMassType(
+                        massType)[2]),
+                SizedBox(
+                  width: 5,
+                ),
+                Expanded(
+                  child: Container(
+                    child: Text(
+                      DataHelper.generateSuggestionListAccordingToMassType(
+                          massType)[2],
+                      style: Constants.suggestionTextStyle,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

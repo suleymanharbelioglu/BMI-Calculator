@@ -21,27 +21,27 @@ class Constants {
     fontWeight: FontWeight.w500,
   );
   static const resultTextStyle = TextStyle(
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: FontWeight.w500,
   );
   static const resultIndexTextstyle = TextStyle(
-    fontSize: 30,
+    fontSize: 26,
     fontWeight: FontWeight.bold,
   );
   static const suggestionTextStyle = TextStyle(
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: FontWeight.w600,
   );
   static const bodyTypeTextStyle = TextStyle(
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: FontWeight.bold,
   );
   static const ContainerMargin =
-      EdgeInsets.symmetric(horizontal: 20, vertical: 10);
+      EdgeInsets.symmetric(horizontal: 20, vertical: 5);
   static const reusltSuggestionPadding =
       EdgeInsets.symmetric(horizontal: 0, vertical: 5);
   static const resultSuggestionTextPadding =
-      EdgeInsets.symmetric(horizontal: 10, vertical: 10);
+      EdgeInsets.symmetric(horizontal: 10, vertical: 5);
   static const bakButtonPadding =
       EdgeInsets.symmetric(horizontal: 10, vertical: 0);
 }

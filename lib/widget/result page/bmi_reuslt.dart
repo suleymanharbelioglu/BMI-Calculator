@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
 
 class BmiReuslt extends StatelessWidget {
-  const BmiReuslt({super.key});
+  final double massIndex;
+  const BmiReuslt({super.key, required this.massIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class BmiReuslt extends StatelessWidget {
             style: Constants.resultTextStyle,
           ),
           Text(
-            "32.12",
+            "${massIndex.toStringAsFixed(2)}",
             style: Constants.resultIndexTextstyle,
           ),
         ],

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
+import 'package:flutter_application_2/model/model.dart';
 import 'package:flutter_application_2/widget/result%20page/bar_img_body_type.dart';
 import 'package:flutter_application_2/widget/result%20page/bmi_reuslt.dart';
 import 'package:flutter_application_2/widget/result%20page/suggestions.dart';
 
 class ResultPage extends StatelessWidget {
+  final double massIndex = 18;
+  final MassType massType = MassType.extremelyObese;
   const ResultPage({super.key});
 
   @override
@@ -13,7 +16,7 @@ class ResultPage extends StatelessWidget {
       backgroundColor: Constants.appBackgroundColur,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: Padding( 
+        leading: Padding(
           padding: Constants.bakButtonPadding,
           child: IconButton(
             onPressed: () {
@@ -36,9 +39,15 @@ class ResultPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          BmiReuslt(),
-          BarImgBodyType(),
-          Suggestions(),
+          BmiReuslt(
+            massIndex: massIndex,
+          ),
+          BarImgBodyType(
+            massType: massType,
+          ),
+          Suggestions(
+            massType: massType,
+          ),
         ],
       ),
     );
