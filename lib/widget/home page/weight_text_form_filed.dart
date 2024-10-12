@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
+import 'package:flux_validator_dart/flux_validator_dart.dart';
 
 class WeightTextFormFiled extends StatelessWidget {
   final Function onWeightToke;
@@ -27,6 +28,9 @@ class WeightTextFormFiled extends StatelessWidget {
             validator: (value) {
               if (value!.length == 0) {
                 return "Enter your Weight";
+              }
+              if (validatorNumber(value)) {
+                return "Enter valid weight";
               }
               return null;
             },

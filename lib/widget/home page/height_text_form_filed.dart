@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/constant/constants.dart';
+import 'package:flux_validator_dart/flux_validator_dart.dart';
 
 class HeightTextFormFiled extends StatelessWidget {
   final Function onHeightToke;
@@ -28,6 +29,9 @@ class HeightTextFormFiled extends StatelessWidget {
             validator: (value) {
               if (value!.length == 0) {
                 return "Enter your Height";
+              }
+              if (validatorNumber(value)) {
+                return "Enter valid height";
               }
               return null;
             },
