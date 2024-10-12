@@ -32,7 +32,6 @@ class WeightTextFormFiled extends StatelessWidget {
             },
             onSaved: (newValue) {
               onWeightToke(newValue);
-              print("Weight : $newValue");
             },
             decoration: InputDecoration(
               hintText: "Enter Weight",

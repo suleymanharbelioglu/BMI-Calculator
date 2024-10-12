@@ -18,7 +18,7 @@ class BmiReuslt extends StatelessWidget {
             style: Constants.resultTextStyle,
           ),
           Text(
-            "${massIndex.toStringAsFixed(2)}",
+            massIndex.toStringAsFixed(2).toString(),
             style: Constants.resultIndexTextstyle,
           ),
         ],

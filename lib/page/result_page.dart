@@ -39,18 +39,20 @@ class ResultPage extends StatelessWidget {
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28),
         ),
       ),
-      body: Column(
-        children: [
-          BmiReuslt(
-            massIndex: massIndex,
-          ),
-          BarImgBodyType(
-            massType: massType,
-          ),
-          Suggestions(
-            massType: massType,
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            BmiReuslt(
+              massIndex: massIndex,
+            ),
+            BarImgBodyType(
+              massType: massType,
+            ),
+            Suggestions(
+              massType: massType,
+            ),
+          ],
+        ),
       ),
     );
   }

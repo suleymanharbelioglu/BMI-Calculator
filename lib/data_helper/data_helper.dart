@@ -1,7 +1,8 @@
 import 'package:flutter_application_2/model/model.dart';
 
 class DataHelper {
-  static String? createMainImageUrlAccordingToMassType(MassType massType) {
+  static String createMainImageUrlAccordingToMassType(MassType massType) {
+    print("${massType}-------------------------------");
     var urlHeader = "assets/images/";
     switch (massType) {
       case MassType.underWeight:
@@ -14,11 +15,13 @@ class DataHelper {
         return urlHeader + "extremelyObese.png";
 
       default:
-        return null;
+        return "";
     }
   }
 
   static String createMassTypeTextAccordingToMassType(MassType massType) {
+    print("${massType}-------------------------------");
+
     switch (massType) {
       case MassType.underWeight:
         return "Under Weight";
@@ -27,15 +30,17 @@ class DataHelper {
       case MassType.overWeight:
         return "Over Weight";
       case MassType.extremelyObese:
-        return " Extremely Obese";
+        return "Extremely Obese";
 
       default:
-        return "";
+        return "null";
     }
   }
 
   static List<String> generateSuggestionListAccordingToMassType(
       MassType massType) {
+    print("${massType}-------------------------------");
+
     switch (massType) {
       case MassType.underWeight:
         return [
@@ -63,7 +68,7 @@ class DataHelper {
         ];
 
       default:
-        return [];
+        return ["null", "null", "null"];
     }
   }
 
@@ -98,28 +103,62 @@ class DataHelper {
         ];
 
       default:
-        return [];
+        return [
+          urlHeader + "sleep.png",
+          urlHeader + "sleep.png",
+          urlHeader + "sleep.png",
+        ];
     }
   }
 
-  static calculateBodyMassIndex(String age, String height, String weight) {
-    double ageNum = double.parse(age);
+  static calculateBodyMassIndex(
+      String age, String height, String weight, String gender) {
+    double genderVar = calculateGenderVar(gender);
+    double ageVar = calculateAgeVar(age);
     double heightNum = double.parse(height);
     double weightNum = double.parse(weight);
     var h = (heightNum / 100) * (heightNum / 100);
-    return weightNum / h;
+    return (weightNum / h) - ageVar - genderVar;
+  }
+
+  static double calculateGenderVar(String gender) {
+    switch (gender) {
+      case "Male":
+        return 2.5;
+      case "Female":
+        return 0;
+
+      default:
+        return 0;
+    }
+  }
+
+  static double calculateAgeVar(String age) {
+    switch (age) {
+      case "old":
+        return 0.5;
+      case "adult":
+        return 1;
+      case "teen":
+        return 0.5;
+      case "child":
+        return 0;
+      default:
+        return 0;
+    }
   }
 
   static MassType? returnMassTypeAcordingToBMI(double bodyMassIndex) {
     if (bodyMassIndex > 30) {
       return MassType.extremelyObese;
-    } else if (bodyMassIndex < 30 || bodyMassIndex > 25) {
+    } else if (bodyMassIndex > 25) {
       return MassType.overWeight;
-    } else if (bodyMassIndex < 25 || bodyMassIndex > 18) {
+    } else if (bodyMassIndex > 18) {
       return MassType.normalWeight;
     } else if (bodyMassIndex < 18) {
       return MassType.underWeight;
     }
+
     return null;
   }
 }

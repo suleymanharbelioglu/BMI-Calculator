@@ -3,7 +3,8 @@ import 'package:flutter_application_2/constant/constants.dart';
 import 'package:flutter_application_2/data_helper/data_helper.dart';
 import 'package:flutter_application_2/model/model.dart';
 import 'package:flutter_application_2/page/result_page.dart';
-import 'package:flutter_application_2/widget/home%20page/age_text_form_field.dart';
+import 'package:flutter_application_2/widget/home%20page/age_dropdown.dart';
+import 'package:flutter_application_2/widget/home%20page/gender_dropdown.dart';
 import 'package:flutter_application_2/widget/home%20page/height_text_form_filed.dart';
 import 'package:flutter_application_2/widget/home%20page/weight_text_form_filed.dart';
 
@@ -16,9 +17,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late GlobalKey<FormState> formKey;
-  String age = "";
+  String? age;
   String height = "";
   String weight = "";
+  String? gender;
   late double bodyMassIndex;
   late MassType massType;
   @override
@@ -53,25 +55,43 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Form(
-        key: formKey,
-        child: Column(
-          children: [
-            AgeTextFormField(onAgeToke: (String tokenAge) {
-              age = tokenAge;
-            }),
-            HeightTextFormFiled(
-              onHeightToke: (String tokenheight) {
-                height = tokenheight;
-              },
-            ),
-            WeightTextFormFiled(
-              onWeightToke: (String tokenweight) {
-                weight = tokenweight;
-              },
-            ),
-            calculateButton(),
-          ],
+      body: SingleChildScrollView(
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              HeightTextFormFiled(
+                onHeightToke: (String tokenheight) {
+                  height = tokenheight;
+                  print("height : $height");
+                },
+              ),
+              WeightTextFormFiled(
+                onWeightToke: (String tokenweight) {
+                  weight = tokenweight;
+                  print("weight : $weight");
+                },
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Row(
+                  children: [
+                    Expanded(child: GenderDropdown(
+                      onGenderChoosen: (String genderVar) {
+                        gender = genderVar;
+                      },
+                    )),
+                    Expanded(child: AgeDropdown(
+                      onAgeChoosen: (String ageVar) {
+                        age = ageVar;
+                      },
+                    )),
+                  ],
+                ),
+              ),
+              calculateButton(),
+            ],
+          ),
         ),
       ),
     );
@@ -80,12 +100,13 @@ class _HomePageState extends State<HomePage> {
   Widget calculateButton() {
     return GestureDetector(
       onTap: () {
-        if (formKey.currentState!.validate()) {
+        if (formKey.currentState!.validate() && age != null && gender != null) {
           formKey.currentState!.save();
           bodyMassIndex =
-              DataHelper.calculateBodyMassIndex(age, height, weight);
-          
+              DataHelper.calculateBodyMassIndex(age!, height, weight, gender!);
           massType = DataHelper.returnMassTypeAcordingToBMI(bodyMassIndex)!;
+          print("bmi : $bodyMassIndex --------------------------");
+          print("massType : $massType -------------------------");
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) =>
                 ResultPage(massIndex: bodyMassIndex, massType: massType),

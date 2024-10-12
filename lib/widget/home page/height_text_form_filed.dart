@@ -31,7 +31,6 @@ class HeightTextFormFiled extends StatelessWidget {
               return null;
             },
             onSaved: (newValue) {
-              print("Height : $newValue");
               onHeightToke(newValue);
             },
             decoration: InputDecoration(
