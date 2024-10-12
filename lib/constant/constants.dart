@@ -36,6 +36,11 @@ class Constants {
     fontSize: 20,
     fontWeight: FontWeight.bold,
   );
+  static final textFormFieldSuffixTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: Colors.grey.shade400,
+  );
   static const ContainerMargin =
       EdgeInsets.symmetric(horizontal: 20, vertical: 5);
   static const reusltSuggestionPadding =

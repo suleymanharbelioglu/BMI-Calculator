@@ -38,6 +38,13 @@ class WeightTextFormFiled extends StatelessWidget {
               hintStyle: Constants.inputHintStyle,
               fillColor: Constants.textFiledColor,
               filled: true,
+              suffix: Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: Text(
+                  "kg",
+                  style: Constants.textFormFieldSuffixTextStyle,
+                ),
+              ),
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(15),

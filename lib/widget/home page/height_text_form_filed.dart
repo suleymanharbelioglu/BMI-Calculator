@@ -37,6 +37,13 @@ class HeightTextFormFiled extends StatelessWidget {
               hintText: "Enter Height",
               hintStyle: Constants.inputHintStyle,
               fillColor: Constants.textFiledColor,
+              suffix: Padding(
+                padding: const EdgeInsets.only(right: 5),
+                child: Text(
+                  "cm",
+                  style: Constants.textFormFieldSuffixTextStyle,
+                ),
+              ),
               filled: true,
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
