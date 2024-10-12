@@ -33,8 +33,10 @@ class WeightTextFormFiled extends StatelessWidget {
             onSaved: (newValue) {
               onWeightToke(newValue);
             },
+            maxLength: 3,
             decoration: InputDecoration(
               hintText: "Enter Weight",
+              counterText: "",
               hintStyle: Constants.inputHintStyle,
               fillColor: Constants.textFiledColor,
               filled: true,

@@ -23,6 +23,7 @@ class HeightTextFormFiled extends StatelessWidget {
           ),
           SizedBox(height: 10),
           TextFormField(
+            maxLength: 3,
             keyboardType: TextInputType.number,
             validator: (value) {
               if (value!.length == 0) {
@@ -34,6 +35,7 @@ class HeightTextFormFiled extends StatelessWidget {
               onHeightToke(newValue);
             },
             decoration: InputDecoration(
+              counterText: "",
               hintText: "Enter Height",
               hintStyle: Constants.inputHintStyle,
               fillColor: Constants.textFiledColor,

@@ -118,7 +118,13 @@ class DataHelper {
     double heightNum = double.parse(height);
     double weightNum = double.parse(weight);
     var h = (heightNum / 100) * (heightNum / 100);
-    return (weightNum / h) - ageVar - genderVar;
+    double bmi = (weightNum / h) - ageVar - genderVar;
+    if (bmi < 0) {
+      bmi = 0;
+    } else if (bmi > 100) {
+      bmi = 100;
+    }
+    return bmi;
   }
 
   static double calculateGenderVar(String gender) {
