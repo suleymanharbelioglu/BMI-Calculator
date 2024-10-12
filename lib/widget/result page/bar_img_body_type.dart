@@ -22,7 +22,7 @@ class BarImgBodyType extends StatelessWidget {
             height: 200,
             width: 100,
             child: Image.asset(
-              DataHelper.createMainImageUrlAccordingToMassType(massType),
+              DataHelper.createMainImageUrlAccordingToMassType(massType)!,
               fit: BoxFit.fill,
             ),
           ),

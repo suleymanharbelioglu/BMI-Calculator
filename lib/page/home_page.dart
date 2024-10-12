@@ -77,14 +77,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  calculateButton() {
+  Widget calculateButton() {
     return GestureDetector(
       onTap: () {
         if (formKey.currentState!.validate()) {
           formKey.currentState!.save();
           bodyMassIndex =
               DataHelper.calculateBodyMassIndex(age, height, weight);
-          massType = DataHelper.returnMassTypeAcordingToBMI(bodyMassIndex);
+          
+          massType = DataHelper.returnMassTypeAcordingToBMI(bodyMassIndex)!;
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) =>
                 ResultPage(massIndex: bodyMassIndex, massType: massType),

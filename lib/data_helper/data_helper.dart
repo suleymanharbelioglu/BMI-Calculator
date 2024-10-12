@@ -1,7 +1,7 @@
 import 'package:flutter_application_2/model/model.dart';
 
 class DataHelper {
-  static String createMainImageUrlAccordingToMassType(MassType massType) {
+  static String? createMainImageUrlAccordingToMassType(MassType massType) {
     var urlHeader = "assets/images/";
     switch (massType) {
       case MassType.underWeight:
@@ -14,7 +14,7 @@ class DataHelper {
         return urlHeader + "extremelyObese.png";
 
       default:
-        return "";
+        return null;
     }
   }
 
@@ -110,7 +110,7 @@ class DataHelper {
     return weightNum / h;
   }
 
-  static MassType returnMassTypeAcordingToBMI(double bodyMassIndex) {
+  static MassType? returnMassTypeAcordingToBMI(double bodyMassIndex) {
     if (bodyMassIndex > 30) {
       return MassType.extremelyObese;
     } else if (bodyMassIndex < 30 || bodyMassIndex > 25) {
@@ -120,6 +120,6 @@ class DataHelper {
     } else if (bodyMassIndex < 18) {
       return MassType.underWeight;
     }
-    return MassType.underWeight;
+    return null;
   }
 }
