@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_application_2/model/model.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class DataHelper {
   static String createMainImageUrlAccordingToMassType(MassType massType) {
@@ -166,5 +168,26 @@ class DataHelper {
     }
 
     return null;
+  }
+
+  static void showToastMessage(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.white,
+        textColor: Colors.black,
+        fontSize: 16.0);
+  }
+
+static void showToastForDropDownButtons(String? age , String? gender) {
+    if (age == null && gender == null) {
+      DataHelper.showToastMessage("choose age and gender");
+    } else if (age == null) {
+      DataHelper.showToastMessage("choose age");
+    } else if (gender == null) {
+      DataHelper.showToastMessage("choose gender");
+    }
   }
 }

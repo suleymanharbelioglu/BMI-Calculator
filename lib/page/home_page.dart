@@ -7,6 +7,7 @@ import 'package:flutter_application_2/widget/home%20page/age_dropdown.dart';
 import 'package:flutter_application_2/widget/home%20page/gender_dropdown.dart';
 import 'package:flutter_application_2/widget/home%20page/height_text_form_filed.dart';
 import 'package:flutter_application_2/widget/home%20page/weight_text_form_filed.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -100,18 +101,8 @@ class _HomePageState extends State<HomePage> {
   Widget calculateButton() {
     return GestureDetector(
       onTap: () {
-        if (formKey.currentState!.validate() && age != null && gender != null) {
-          formKey.currentState!.save();
-          bodyMassIndex =
-              DataHelper.calculateBodyMassIndex(age!, height, weight, gender!);
-          massType = DataHelper.returnMassTypeAcordingToBMI(bodyMassIndex)!;
-          print("bmi : $bodyMassIndex --------------------------");
-          print("massType : $massType -------------------------");
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) =>
-                ResultPage(massIndex: bodyMassIndex, massType: massType),
-          ));
-        }
+        DataHelper.showToastForDropDownButtons(age, gender);
+        validateAndGoToResultPage();
       },
       child: Container(
         margin: Constants.calculateButtonPading,
@@ -128,5 +119,20 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  void validateAndGoToResultPage() {
+    if (formKey.currentState!.validate() && age != null && gender != null) {
+      formKey.currentState!.save();
+      bodyMassIndex =
+          DataHelper.calculateBodyMassIndex(age!, height, weight, gender!);
+      massType = DataHelper.returnMassTypeAcordingToBMI(bodyMassIndex)!;
+      print("bmi : $bodyMassIndex --------------------------");
+      print("massType : $massType -------------------------");
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) =>
+            ResultPage(massIndex: bodyMassIndex, massType: massType),
+      ));
+    }
   }
 }
