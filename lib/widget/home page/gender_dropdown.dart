@@ -10,17 +10,17 @@ class GenderDropdown extends StatefulWidget {
 }
 
 class _GenderDropdownState extends State<GenderDropdown> {
-  String? gender = null;
+  String? gender;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         left: 20,
         right: 5,
         top: 5,
         bottom: 5,
       ),
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -30,17 +30,17 @@ class _GenderDropdownState extends State<GenderDropdown> {
         iconEnabledColor: Constants.appColor,
         iconDisabledColor: Constants.appColor,
         iconSize: 30,
-        underline: SizedBox(),
-        hint: Text("Choose Gender"),
+        underline: const SizedBox(),
+        hint: const Text("Choose Gender"),
         value: gender,
-        items: [
+        items: const [
           DropdownMenuItem(
-            child: Text("Male"),
             value: "Male",
+            child: Text("Male"),
           ),
           DropdownMenuItem(
-            child: Text("Female"),
             value: "Female",
+            child: Text("Female"),
           ),
         ],
         onChanged: (value) {

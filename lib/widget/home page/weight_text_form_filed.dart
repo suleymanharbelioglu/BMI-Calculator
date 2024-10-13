@@ -9,24 +9,21 @@ class WeightTextFormFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: Constants.ContainerMargin,
-      // height: 75,
+      margin: Constants.containerMargin,
       width: double.infinity,
-      decoration: BoxDecoration(
-          // color: Colors.yellow.shade100,
-          ),
+      decoration: const BoxDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Enter Weight",
             style: Constants.inputLabelStyle,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           TextFormField(
             keyboardType: TextInputType.number,
             validator: (value) {
-              if (value!.length == 0) {
+              if (value!.isEmpty) {
                 return "Enter your Weight";
               }
               if (validatorNumber(value)) {

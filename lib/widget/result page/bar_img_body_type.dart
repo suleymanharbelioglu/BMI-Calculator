@@ -10,15 +10,12 @@ class BarImgBodyType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 100,
-      margin: Constants.ContainerMargin,
-      // color: Colors.yellow,
+      margin: Constants.containerMargin,
       alignment: Alignment.center,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            // color: Colors.yellow,
+          SizedBox(
             height: 200,
             width: 100,
             child: Image.asset(

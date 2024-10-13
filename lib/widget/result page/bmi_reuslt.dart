@@ -8,12 +8,12 @@ class BmiReuslt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: Constants.ContainerMargin,
+      margin: Constants.containerMargin,
       // color: Colors.yellow,
       alignment: Alignment.center,
       child: Column(
         children: [
-          Text(
+          const Text(
             "Your Body Mass Index",
             style: Constants.resultTextStyle,
           ),

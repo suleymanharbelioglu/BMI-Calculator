@@ -9,25 +9,24 @@ class HeightTextFormFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: Constants.ContainerMargin,
+      margin: Constants.containerMargin,
       // height: 75,
       width: double.infinity,
-      decoration: BoxDecoration(
-          // color: Colors.yellow.shade100,
+      decoration: const BoxDecoration(
           ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Enter Height",
             style: Constants.inputLabelStyle,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           TextFormField(
             maxLength: 3,
             keyboardType: TextInputType.number,
             validator: (value) {
-              if (value!.length == 0) {
+              if (value!.isEmpty) {
                 return "Enter your Height";
               }
               if (validatorNumber(value)) {

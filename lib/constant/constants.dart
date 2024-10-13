@@ -41,7 +41,7 @@ class Constants {
     fontWeight: FontWeight.w500,
     color: Colors.grey.shade400,
   );
-  static const ContainerMargin =
+  static const containerMargin =
       EdgeInsets.symmetric(horizontal: 20, vertical: 5);
   static const reusltSuggestionPadding =
       EdgeInsets.symmetric(horizontal: 0, vertical: 5);

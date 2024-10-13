@@ -4,17 +4,17 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class DataHelper {
   static String createMainImageUrlAccordingToMassType(MassType massType) {
-    print("${massType}-------------------------------");
+    debugPrint("$massType-------------------------------");
     var urlHeader = "assets/images/";
     switch (massType) {
       case MassType.underWeight:
-        return urlHeader + "underWeight.png";
+        return "${urlHeader}underWeight.png";
       case MassType.normalWeight:
-        return urlHeader + "normalWeight.png";
+        return "${urlHeader}normalWeight.png";
       case MassType.overWeight:
-        return urlHeader + "overWeight.png";
+        return "${urlHeader}overWeight.png";
       case MassType.extremelyObese:
-        return urlHeader + "extremelyObese.png";
+        return "${urlHeader}extremelyObese.png";
 
       default:
         return "";
@@ -22,7 +22,7 @@ class DataHelper {
   }
 
   static String createMassTypeTextAccordingToMassType(MassType massType) {
-    print("${massType}-------------------------------");
+    debugPrint("$massType-------------------------------");
 
     switch (massType) {
       case MassType.underWeight:
@@ -41,7 +41,7 @@ class DataHelper {
 
   static List<String> generateSuggestionListAccordingToMassType(
       MassType massType) {
-    print("${massType}-------------------------------");
+    debugPrint("$massType-------------------------------");
 
     switch (massType) {
       case MassType.underWeight:
@@ -81,34 +81,34 @@ class DataHelper {
     switch (massType) {
       case MassType.normalWeight:
         return [
-          urlHeader + "run.png",
-          urlHeader + "rightFoods.png",
-          urlHeader + "sleep.png",
+          "${urlHeader}run.png",
+          "${urlHeader}rightFoods.png",
+          "${urlHeader}sleep.png",
         ];
       case MassType.underWeight:
         return [
-          urlHeader + "noWater.png",
-          urlHeader + "biggerPlate.png",
-          urlHeader + "sleep.png",
+          "${urlHeader}noWater.png",
+          "${urlHeader}biggerPlate.png",
+          "${urlHeader}sleep.png",
         ];
       case MassType.overWeight:
         return [
-          urlHeader + "water.png",
-          urlHeader + "egg.png",
-          urlHeader + "noCoffee.png",
+          "${urlHeader}water.png",
+          "${urlHeader}egg.png",
+          "${urlHeader}noCoffee.png",
         ];
       case MassType.extremelyObese:
         return [
-          urlHeader + "water.png",
-          urlHeader + "egg.png",
-          urlHeader + "noCoffee.png",
+          "${urlHeader}water.png",
+          "${urlHeader}egg.png",
+          "${urlHeader}noCoffee.png",
         ];
 
       default:
         return [
-          urlHeader + "sleep.png",
-          urlHeader + "sleep.png",
-          urlHeader + "sleep.png",
+          "${urlHeader}sleep.png",
+          "${urlHeader}sleep.png",
+          "${urlHeader}sleep.png",
         ];
     }
   }

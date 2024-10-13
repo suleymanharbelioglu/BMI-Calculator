@@ -24,7 +24,7 @@ class ResultPage extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
               color: Constants.backButtonColor,
               size: 30,
@@ -33,7 +33,7 @@ class ResultPage extends StatelessWidget {
         ),
         toolbarHeight: 70,
         backgroundColor: Constants.appColor.shade400,
-        title: Text(
+        title: const Text(
           "Body Mass Index",
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28),

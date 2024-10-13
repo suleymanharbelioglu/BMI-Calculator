@@ -10,18 +10,18 @@ class AgeDropdown extends StatefulWidget {
 }
 
 class _AgeDropdownState extends State<AgeDropdown> {
-  String? age = null;
+  String? age;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         left: 5,
         right: 20,
         top: 5,
         bottom: 5,
       ),
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -31,27 +31,27 @@ class _AgeDropdownState extends State<AgeDropdown> {
         iconEnabledColor: Constants.appColor,
         iconDisabledColor: Constants.appColor,
         iconSize: 30,
-        underline: SizedBox(),
-        hint: Text(
+        underline: const SizedBox(),
+        hint: const Text(
           "Choose Age",
         ),
         value: age,
-        items: [
+        items: const [
           DropdownMenuItem(
-            child: Text("age > 50"),
             value: "old",
+            child: Text("age > 50"),
           ),
           DropdownMenuItem(
-            child: Text("50 > age > 24"),
             value: "adult",
+            child: Text("50 > age > 24"),
           ),
           DropdownMenuItem(
-            child: Text("24 > age > 16"),
             value: "teen",
+            child: Text("24 > age > 16"),
           ),
           DropdownMenuItem(
-            child: Text("16 > age"),
             value: "child",
+            child: Text("16 > age"),
           ),
         ],
         onChanged: (value) {

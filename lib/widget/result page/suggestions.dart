@@ -11,8 +11,7 @@ class Suggestions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: Constants.ContainerMargin,
-      // color: Colors.yellow,
+      margin: Constants.containerMargin,
       alignment: Alignment.center,
       child: Column(
         children: [
@@ -30,16 +29,14 @@ class Suggestions extends StatelessWidget {
                 Image.asset(DataHelper
                     .generateSuggestionImageUrlListAccordingToMassType(
                         massType)[0]),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Expanded(
-                  child: Container(
-                    child: Text(
-                      DataHelper.generateSuggestionListAccordingToMassType(
-                          massType)[0],
-                      style: Constants.suggestionTextStyle,
-                    ),
+                  child: Text(
+                    DataHelper.generateSuggestionListAccordingToMassType(
+                        massType)[0],
+                    style: Constants.suggestionTextStyle,
                   ),
                 ),
               ],
@@ -59,16 +56,14 @@ class Suggestions extends StatelessWidget {
                 Image.asset(DataHelper
                     .generateSuggestionImageUrlListAccordingToMassType(
                         massType)[1]),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Expanded(
-                  child: Container(
-                    child: Text(
-                      DataHelper.generateSuggestionListAccordingToMassType(
-                          massType)[1],
-                      style: Constants.suggestionTextStyle,
-                    ),
+                  child: Text(
+                    DataHelper.generateSuggestionListAccordingToMassType(
+                        massType)[1],
+                    style: Constants.suggestionTextStyle,
                   ),
                 ),
               ],
@@ -88,16 +83,14 @@ class Suggestions extends StatelessWidget {
                 Image.asset(DataHelper
                     .generateSuggestionImageUrlListAccordingToMassType(
                         massType)[2]),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Expanded(
-                  child: Container(
-                    child: Text(
-                      DataHelper.generateSuggestionListAccordingToMassType(
-                          massType)[2],
-                      style: Constants.suggestionTextStyle,
-                    ),
+                  child: Text(
+                    DataHelper.generateSuggestionListAccordingToMassType(
+                        massType)[2],
+                    style: Constants.suggestionTextStyle,
                   ),
                 ),
               ],

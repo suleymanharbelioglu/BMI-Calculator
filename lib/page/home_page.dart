@@ -7,7 +7,6 @@ import 'package:flutter_application_2/widget/home%20page/age_dropdown.dart';
 import 'package:flutter_application_2/widget/home%20page/gender_dropdown.dart';
 import 'package:flutter_application_2/widget/home%20page/height_text_form_filed.dart';
 import 'package:flutter_application_2/widget/home%20page/weight_text_form_filed.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -38,7 +37,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         toolbarHeight: 70,
         backgroundColor: Constants.appColor.shade400,
-        title: Text(
+        title: const Text(
           "Body Mass Index",
           style: TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28),
@@ -48,7 +47,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.help,
                   color: Colors.white,
                   size: 35,
@@ -64,29 +63,33 @@ class _HomePageState extends State<HomePage> {
               HeightTextFormFiled(
                 onHeightToke: (String tokenheight) {
                   height = tokenheight;
-                  print("height : $height");
+                  debugPrint("height : $height");
                 },
               ),
               WeightTextFormFiled(
                 onWeightToke: (String tokenweight) {
                   weight = tokenweight;
-                  print("weight : $weight");
+                  debugPrint("weight : $weight");
                 },
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
+                padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Row(
                   children: [
-                    Expanded(child: GenderDropdown(
-                      onGenderChoosen: (String genderVar) {
-                        gender = genderVar;
-                      },
-                    )),
-                    Expanded(child: AgeDropdown(
-                      onAgeChoosen: (String ageVar) {
-                        age = ageVar;
-                      },
-                    )),
+                    Expanded(
+                      child: GenderDropdown(
+                        onGenderChoosen: (String genderVar) {
+                          gender = genderVar;
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      child: AgeDropdown(
+                        onAgeChoosen: (String ageVar) {
+                          age = ageVar;
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -113,7 +116,7 @@ class _HomePageState extends State<HomePage> {
           color: Constants.appColor,
           borderRadius: BorderRadius.circular(30),
         ),
-        child: Text(
+        child: const Text(
           "Calculate",
           style: Constants.calculateTextStyle,
         ),
@@ -127,8 +130,8 @@ class _HomePageState extends State<HomePage> {
       bodyMassIndex =
           DataHelper.calculateBodyMassIndex(age!, height, weight, gender!);
       massType = DataHelper.returnMassTypeAcordingToBMI(bodyMassIndex)!;
-      print("bmi : $bodyMassIndex --------------------------");
-      print("massType : $massType -------------------------");
+      debugPrint("bmi : $bodyMassIndex --------------------------");
+      debugPrint("massType : $massType -------------------------");
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) =>
             ResultPage(massIndex: bodyMassIndex, massType: massType),
