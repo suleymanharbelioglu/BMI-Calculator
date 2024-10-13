@@ -3,19 +3,19 @@ import 'package:flutter_application_2/constant/constants.dart';
 import 'package:flutter_application_2/data_helper/data_helper.dart';
 import 'package:flutter_application_2/model/model.dart';
 import 'package:flutter_application_2/page/result_page.dart';
-import 'package:flutter_application_2/widget/home%20page/age_dropdown.dart';
-import 'package:flutter_application_2/widget/home%20page/gender_dropdown.dart';
-import 'package:flutter_application_2/widget/home%20page/height_text_form_filed.dart';
-import 'package:flutter_application_2/widget/home%20page/weight_text_form_filed.dart';
+import 'package:flutter_application_2/widget/calculation%20page/age_dropdown.dart';
+import 'package:flutter_application_2/widget/calculation%20page/gender_dropdown.dart';
+import 'package:flutter_application_2/widget/calculation%20page/height_text_form_filed.dart';
+import 'package:flutter_application_2/widget/calculation%20page/weight_text_form_filed.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class CalculationPage extends StatefulWidget {
+  const CalculationPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CalculationPage> createState() => _CalculationPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CalculationPageState extends State<CalculationPage> {
   late GlobalKey<FormState> formKey;
   String? age;
   String height = "";
